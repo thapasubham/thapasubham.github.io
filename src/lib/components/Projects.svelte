@@ -38,20 +38,20 @@
 
 		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 			{#each projects as project}
-				<div class="glass-card group flex flex-col h-full">
-					<div class="aspect-video bg-zinc-800 rounded-xl mb-6 overflow-hidden relative">
-						<div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
+				<div class="glass-card group flex flex-col h-full bg-white border-zinc-200">
+					<div class="aspect-video bg-zinc-100 rounded-xl mb-6 overflow-hidden relative">
+						<div class="absolute inset-0 bg-gradient-to-t from-zinc-200/50 to-transparent"></div>
                         <div class="absolute inset-x-0 bottom-0 p-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
                             <a href={project.link} class="w-full btn-primary text-center block text-sm py-2">View Case Study</a>
                         </div>
 					</div>
-					<h3 class="text-xl font-bold mb-3">{project.title}</h3>
-					<p class="text-zinc-500 text-sm mb-6 flex-grow">
+					<h3 class="text-xl font-bold mb-3 text-zinc-950">{project.title}</h3>
+					<p class="text-zinc-600 text-sm mb-6 flex-grow">
 						{project.description}
 					</p>
-					<div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+					<div class="flex flex-wrap gap-2 pt-4 border-t border-zinc-100">
 						{#each project.tech as t}
-							<span class="text-[10px] uppercase tracking-widest font-bold text-zinc-600">{t}</span>
+							<span class="text-[10px] uppercase tracking-widest font-bold text-zinc-400">{t}</span>
 						{/each}
 					</div>
 				</div>

@@ -12,11 +12,11 @@
 			Available for projects
 		</div>
 
-		<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight animate-fade-in-up [animation-delay:100ms]">
-			Building digital <span class="bg-gradient-to-r from-brand-primary to-blue-400 bg-clip-text text-transparent">experiences</span> that matter.
+		<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight animate-fade-in-up [animation-delay:100ms] text-zinc-950">
+			Building digital <span class="bg-gradient-to-r from-brand-primary to-blue-600 bg-clip-text text-transparent">experiences</span> that matter.
 		</h1>
 
-		<p class="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-in-up [animation-delay:200ms]">
+		<p class="text-zinc-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-in-up [animation-delay:200ms]">
 			Hi, I'm a full-stack developer passionate about creating clean, performant, and user-centric web applications with modern technologies.
 		</p>
 
@@ -24,7 +24,7 @@
 			<a href="#projects" class="btn-primary">
 				View Work
 			</a>
-			<a href="#contact" class="px-6 py-3 rounded-full border border-white/10 hover:bg-white/5 transition-colors font-medium">
+			<a href="#contact" class="px-6 py-3 rounded-full border border-zinc-200 hover:bg-zinc-100 transition-colors font-medium text-zinc-900">
 				Contact Me
 			</a>
 		</div>

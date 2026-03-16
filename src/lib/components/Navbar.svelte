@@ -17,11 +17,11 @@
 
 <nav
 	class="fixed top-0 left-0 w-full z-50 transition-all duration-300 {isScrolled
-		? 'bg-zinc-950/80 backdrop-blur-md border-b border-white/5 py-4'
+		? 'bg-white/80 backdrop-blur-md border-b border-zinc-200 py-4 shadow-sm'
 		: 'bg-transparent py-6'}"
 >
 	<div class="container-custom flex justify-between items-center">
-		<a href="/" class="text-xl font-bold tracking-tighter text-white">
+		<a href="/" class="text-xl font-bold tracking-tighter text-zinc-950">
 			DEV<span class="text-brand-primary">PORTFOLIO</span>
 		</a>
 
@@ -34,8 +34,8 @@
 			<a href="#contact" class="btn-primary text-sm py-2 px-6"> Hire Me </a>
 		</div>
 
-		<!-- Mobile menu button (would add state/logic for actual toggle) -->
-		<button class="md:hidden text-zinc-400">
+		<!-- Mobile menu button -->
+		<button class="md:hidden text-zinc-600" aria-label="Toggle Menu">
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
 		</button>
 	</div>

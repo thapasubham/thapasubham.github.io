@@ -25,7 +25,7 @@
 					<div class="flex flex-wrap gap-3">
 						{#each category.items as skill}
 							<span
-								class="hover:border-brand-primary/30 rounded-lg border border-white/5 bg-zinc-800/50 px-4 py-2 text-sm text-zinc-300 transition-colors"
+								class="rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm text-zinc-700 transition-colors hover:border-brand-primary/30"
 							>
 								{skill}
 							</span>

@@ -18,14 +18,14 @@
 			</div>
 
 			<div>
-				<h2 class="text-3xl md:text-4xl font-bold mb-6">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 text-zinc-950">
 					Passion driven by <span class="text-brand-primary">purpose</span>.
 				</h2>
-				<p class="text-zinc-400 mb-6 leading-relaxed">
+				<p class="text-zinc-600 mb-6 leading-relaxed">
 					I am a software engineer with a strong foundation in modern web technologies. 
                     I specialize in building scalable applications that provide exceptional user experiences.
 				</p>
-				<p class="text-zinc-400 mb-10 leading-relaxed">
+				<p class="text-zinc-600 mb-10 leading-relaxed">
 					With over 5 years of experience in the industry, I've had the privilege of working with 
                     innovative startups and established enterprises, helping them bring their visions to life 
                     through clean code and thoughtful design.
@@ -33,11 +33,11 @@
 				
 				<div class="grid grid-cols-2 gap-6">
 					<div>
-						<h4 class="text-white font-bold text-2xl mb-1">5+</h4>
+						<h4 class="text-zinc-950 font-bold text-2xl mb-1">5+</h4>
 						<p class="text-zinc-500 text-sm">Years Experience</p>
 					</div>
 					<div>
-						<h4 class="text-white font-bold text-2xl mb-1">40+</h4>
+						<h4 class="text-zinc-950 font-bold text-2xl mb-1">40+</h4>
 						<p class="text-zinc-500 text-sm">Projects Completed</p>
 					</div>
 				</div>
