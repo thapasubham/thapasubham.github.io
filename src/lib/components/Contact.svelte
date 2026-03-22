@@ -1,54 +1,95 @@
-<section id="contact" class="py-24 bg-zinc-900/30">
-	<div class="container-custom">
-		<div class="glass-card max-w-4xl mx-auto p-12 overflow-hidden relative">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<section id="contact" class="max-w-6xl mx-auto px-8 py-24">
+    <!-- Section Header -->
+    <div class="mb-24 flex items-start gap-8">
+        <div class="w-1 bg-primary h-24"></div>
+        <div>
+            <span class="font-headline text-xs font-bold tracking-[0.3em] text-primary block mb-2">COMM_PROTOCOL // 004</span>
+            <h1 class="font-headline text-6xl md:text-8xl font-black uppercase tracking-tighter text-on-surface leading-none">
+                Establish<br/>Connection
+            </h1>
+        </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+        <!-- Contact Info Panel -->
+        <div class="md:col-span-4 space-y-16">
+            <section>
+                <h3 class="font-headline text-xs font-black tracking-widest text-primary mb-6">LOCATION_DATA</h3>
+                <div class="bg-surface-container-highest aspect-square w-full relative mb-4">
+                    <img class="w-full h-full object-cover grayscale opacity-50 contrast-125" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=2000" alt="Map View"/>
+                    <div class="absolute inset-0 border-[16px] border-surface-container-highest"></div>
+                    <div class="absolute top-4 right-4 bg-primary text-white p-2 text-[10px] font-headline">27.6939° N, 85.2816° E</div>
+                </div>
+                <p class="font-headline text-sm tracking-tighter leading-tight opacity-60">KATHMANDU_DISTRICT // KALANKI</p>
+            </section>
             
-			<div class="grid md:grid-cols-2 gap-12 relative z-10">
-				<div>
-					<h2 class="text-3xl md:text-4xl font-bold mb-6 text-zinc-950">Let's build something <span class="text-brand-primary">extraordinary</span>.</h2>
-					<p class="text-zinc-600 mb-8">
-						I'm currently available for freelance work and full-time opportunities. 
-                        If you have a project in mind or just want to say hi, feel free to reach out.
-					</p>
-					
-					<div class="space-y-4">
-						<div class="flex items-center gap-4 text-zinc-700">
-							<div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center border border-zinc-200">
-								<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-							</div>
-							hello@example.com
-						</div>
-						<div class="flex items-center gap-4 text-zinc-700">
-							<div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center border border-zinc-200">
-								<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-							</div>
-							San Francisco, CA
-						</div>
-					</div>
-				</div>
-
-				<form class="space-y-4">
-					<div class="grid grid-cols-2 gap-4">
-						<div>
-							<label for="name" class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Name</label>
-							<input type="text" id="name" class="w-full bg-zinc-100 border border-zinc-200 rounded-lg p-3 text-zinc-900 focus:border-brand-primary/50 outline-none transition-colors" placeholder="John Doe" />
-						</div>
-						<div>
-							<label for="email" class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Email</label>
-							<input type="email" id="email" class="w-full bg-zinc-100 border border-zinc-200 rounded-lg p-3 text-zinc-900 focus:border-brand-primary/50 outline-none transition-colors" placeholder="john@example.com" />
-						</div>
-					</div>
-					<div>
-						<label for="subject" class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Subject</label>
-						<input type="text" id="subject" class="w-full bg-zinc-100 border border-zinc-200 rounded-lg p-3 text-zinc-900 focus:border-brand-primary/50 outline-none transition-colors" placeholder="Project Inquiry" />
-					</div>
-					<div>
-						<label for="message" class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Message</label>
-						<textarea id="message" rows="4" class="w-full bg-zinc-100 border border-zinc-200 rounded-lg p-3 text-zinc-900 focus:border-brand-primary/50 outline-none transition-colors resize-none" placeholder="How can I help you?"></textarea>
-					</div>
-					<button type="submit" class="w-full btn-primary mt-2">Send Message</button>
-				</form>
-			</div>
-		</div>
-	</div>
+            <section>
+                <h3 class="font-headline text-xs font-black tracking-widest text-primary mb-6">NEURAL_LINKS</h3>
+                <ul class="space-y-4 font-headline text-sm font-bold tracking-widest uppercase">
+                    <li class="flex justify-between items-center group cursor-pointer border-b border-outline-variant/20 pb-2">
+                        <a href="mailto:subhamits4.2@gmail.com" class="group-hover:text-primary transition-colors flex-1">EMAIL: subhamits4.2</a>
+                        <svg class="h-3 w-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </li>
+                    <li class="flex justify-between items-center group cursor-pointer border-b border-outline-variant/20 pb-2">
+                        <a href="tel:+9779818997475" class="group-hover:text-primary transition-colors flex-1">COMM: +977-9818997475</a>
+                        <svg class="h-3 w-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </li>
+                    <li class="flex justify-between items-center group cursor-pointer border-b border-outline-variant/20 pb-2">
+                        <a href="https://github.com/thapasubham" target="_blank" rel="noreferrer" class="group-hover:text-primary transition-colors flex-1">GITHUB: THAPASUBHAM</a>
+                        <svg class="h-3 w-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        
+        <!-- Form Panel -->
+        <div class="md:col-span-8">
+            <form class="space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Name Input -->
+                    <div class="relative group">
+                        <label for="subject_name" class="absolute -top-6 left-0 font-headline text-[10px] font-black tracking-widest text-primary">SUBJECT_NAME</label>
+                        <input id="subject_name" class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant/20 focus:ring-0 focus:border-primary px-4 py-4 font-headline text-sm tracking-widest placeholder:opacity-30 transition-all outline-none" placeholder="ENTER IDENTIFIER" type="text"/>
+                        <div class="absolute top-0 right-0 w-2 h-2 bg-primary/20"></div>
+                    </div>
+                    <!-- Email Input -->
+                    <div class="relative group">
+                        <label for="return_address" class="absolute -top-6 left-0 font-headline text-[10px] font-black tracking-widest text-primary">RETURN_ADDRESS</label>
+                        <input id="return_address" class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant/20 focus:ring-0 focus:border-primary px-4 py-4 font-headline text-sm tracking-widest placeholder:opacity-30 transition-all outline-none" placeholder="NODE@NETWORK.COM" type="email"/>
+                        <div class="absolute top-0 right-0 w-2 h-2 bg-primary/20"></div>
+                    </div>
+                </div>
+                
+                <!-- Inquiry Type -->
+                <div class="space-y-4">
+                    <span class="font-headline text-[10px] font-black tracking-widest text-primary block">TRANSMISSION_TYPE</span>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="px-6 py-2 border border-primary text-primary font-headline text-xs font-bold tracking-widest hover:bg-primary hover:text-white transition-colors" type="button">PROJECT_REQ</button>
+                        <button class="px-6 py-2 border border-outline-variant/40 text-on-surface opacity-60 font-headline text-xs font-bold tracking-widest hover:border-primary hover:opacity-100 transition-all" type="button">COLLAB_INTEL</button>
+                        <button class="px-6 py-2 border border-outline-variant/40 text-on-surface opacity-60 font-headline text-xs font-bold tracking-widest hover:border-primary hover:opacity-100 transition-all" type="button">SYSTEM_ERR</button>
+                    </div>
+                </div>
+                
+                <!-- Message -->
+                <div class="relative group">
+                    <label for="data_payload" class="absolute -top-6 left-0 font-headline text-[10px] font-black tracking-widest text-primary">DATA_PAYLOAD</label>
+                    <textarea id="data_payload" class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant/20 focus:ring-0 focus:border-primary px-4 py-4 font-headline text-sm tracking-widest placeholder:opacity-30 transition-all resize-none outline-none" placeholder="DECRYPT YOUR MESSAGE HERE..." rows="6"></textarea>
+                    <div class="absolute top-0 right-0 w-4 h-4 bg-primary/10"></div>
+                    <div class="absolute bottom-2 right-2 font-headline text-[8px] opacity-30">ENCRYPTION: AES-256</div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="pt-8">
+                    <button class="group relative w-full h-24 bg-primary text-white overflow-hidden clip-path-button flex items-center justify-center gap-6 transition-transform active:scale-[0.98]" type="submit">
+                        <span class="font-headline text-3xl font-black tracking-tighter uppercase">Initiate Transmission</span>
+                        <svg class="h-8 w-8 group-hover:translate-x-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        
+                        <!-- Decorative elements inside button -->
+                        <div class="absolute top-2 left-4 text-[8px] font-headline tracking-[0.5em] opacity-50">SYNCING_CORE...</div>
+                        <div class="absolute bottom-2 right-12 text-[8px] font-headline tracking-[0.5em] opacity-50">READY_FOR_UPLOAD</div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>

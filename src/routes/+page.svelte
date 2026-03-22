@@ -10,12 +10,17 @@
 
 <svelte:head>
 	<title>Developer Portfolio | Build Extraordinary Experiences</title>
-	<meta name="description" content="Modern developer portfolio showcasing full-stack projects and technical skills." />
+	<meta
+		name="description"
+		content="Modern developer portfolio showcasing full-stack projects and technical skills."
+	/>
 </svelte:head>
 
 <Navbar />
 
 <main>
+	<div class="hud-border pointer-events absolute inset-0"></div>
+
 	<Hero />
 	<About />
 	<Skills />

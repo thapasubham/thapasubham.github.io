@@ -1,61 +1,128 @@
 <script>
+	import ProjectDetail from './ProjectDetail.svelte';
+
 	const projects = [
 		{
-			title: 'E-Commerce Platform',
-			description: 'A full-featured specialized marketplace with real-time analytics.',
-			tech: ['SvelteKit', 'PostgreSQL', 'Tailwind'],
-			link: '#'
+			id: 1,
+			title: 'Movie Review System',
+			description:
+				'A full-stack platform for movie reviews featuring dynamic UI, user authentication via Rust/SvelteKit, and robust database management.',
+			tech: ['Rust', 'SvelteKit', 'Javascript', 'MySQL'],
+			link: 'https://github.com/thapasubham/review',
+			clip: 'clip-skew-left'
 		},
 		{
-			title: 'AI Analytics Dashboard',
-			description: 'Deep learning visualization tool for complex data sets.',
-			tech: ['React', 'Python', 'FastAPI'],
-			link: '#'
+			id: 2,
+			title: 'Go Expense Tracker',
+			description:
+				'Secure backend tracking system with JWT authentication and password hashing. Built with a focus on secure database interactions and clean Go architecture.',
+			tech: ['Golang', 'MySQL', 'JWT'],
+			link: 'https://github.com/thapasubham/goLang',
+			clip: 'clip-cut-corner'
 		},
 		{
-			title: 'SaaS Design System',
-			description: 'Comprehensive UI framework for enterprise applications.',
-			tech: ['TypeScript', 'CSS', 'Figma'],
-			link: '#'
+			id: 3,
+			title: 'Order Microservice',
+			description:
+				'Microservice architecture using Go and MongoDB. Features an API Gateway for routing and RabbitMQ for asynchronous inter-service communication.',
+			tech: ['Golang', 'MongoDB', 'RabbitMQ'],
+			link: 'https://github.com/thapasubham/ordering-service',
+			clip: 'clip-cut-corner'
+		},
+		{
+			id: 4,
+			title: 'Ecommerce Platform',
+			description:
+				'Full-stack platform with Stripe integration, RBAC via JWT/Bcrypt, and Docker-based deployment. Features dynamic font loading and secure resource access.',
+			tech: ['TypeScript', 'Postgres', 'Docker', 'Stripe'],
+			link: 'https://github.com/thapasubham/final-project',
+			clip: 'clip-skew-right'
 		}
 	];
+	let expandedId = $state(0);
+	function toggle(id) {
+		expandedId = id === expandedId ? 0 : id;
+	}
 </script>
 
-<section id="projects" class="py-24">
-	<div class="container-custom">
-		<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-			<div>
-				<h2 class="text-3xl md:text-4xl font-bold mb-4">Selected Work</h2>
-				<p class="text-zinc-400 max-w-xl">
-					A collection of projects that push the boundaries of technology and design.
-				</p>
-			</div>
-			<a href="#projects" class="text-brand-primary font-medium hover:underline flex items-center gap-2">
-				View archived projects
-				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-			</a>
-		</div>
+<section id="projects" class="bg-surface relative overflow-hidden px-2 py-20">
+	<!-- Background Decorations -->
+	<div class="grid-pattern pointer-events-none absolute inset-0 opacity-10"></div>
+	<div class="scanline pointer-events-none absolute inset-0 opacity-40"></div>
 
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-			{#each projects as project}
-				<div class="glass-card group flex flex-col h-full bg-white border-zinc-200">
-					<div class="aspect-video bg-zinc-100 rounded-xl mb-6 overflow-hidden relative">
-						<div class="absolute inset-0 bg-gradient-to-t from-zinc-200/50 to-transparent"></div>
-                        <div class="absolute inset-x-0 bottom-0 p-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
-                            <a href={project.link} class="w-full btn-primary text-center block text-sm py-2">View Case Study</a>
-                        </div>
-					</div>
-					<h3 class="text-xl font-bold mb-3 text-zinc-950">{project.title}</h3>
-					<p class="text-zinc-600 text-sm mb-6 flex-grow">
-						{project.description}
-					</p>
-					<div class="flex flex-wrap gap-2 pt-4 border-t border-zinc-100">
-						{#each project.tech as t}
-							<span class="text-[10px] uppercase tracking-widest font-bold text-zinc-400">{t}</span>
-						{/each}
-					</div>
+	<div class="space-y-48 px-8 py-32 md:px-24">
+		<!-- Section Header: Tactical Design -->
+		<div
+			class="border-on-surface mb-24 flex flex-col items-end justify-between border-b-8 pb-6 md:flex-row"
+		>
+			<div>
+				<div class="mb-2 flex items-center gap-4">
+					<div class="bg-primary h-1 w-8"></div>
 				</div>
-			{/each}
+				<h2 class="font-headline text-6xl font-black tracking-tighter uppercase md:text-8xl">
+					PROJECTS<br />
+				</h2>
+			</div>
+			<div class="font-label hidden text-right md:block">
+				<div class="text-[10px] font-black tracking-widest uppercase opacity-40">
+					SYSTEM_STATE: ACTIVE
+				</div>
+				<div class="text-[10px] font-black tracking-widest uppercase opacity-40">
+					ENCRYPTION: AES-256
+				</div>
+			</div>
+		</div>
+		<div class="glitch-line mb-12"></div>
+
+		<!-- Projects Grid -->
+		<div class="relative lg:col-span-12">
+			<div class="grid grid-cols-1 items-start gap-12 md:grid-cols-12 lg:gap-16">
+				<!-- Project List -->
+				<div class="flex flex-col gap-6 md:col-span-12 lg:col-span-5">
+					{#each projects as project, index (project.id)}
+						<button
+							type="button"
+							onclick={() => toggle(project.id)}
+							class="bg-on-surface clip-cut-corner hover:bg-primary group relative flex w-full cursor-crosshair appearance-none items-center justify-between border-none p-6 text-white transition-all {project.id ===
+							expandedId
+								? 'bg-primary ring-primary ring-2'
+								: ''}"
+							style="margin-left: {index * 0.5}rem"
+						>
+							<div class="bg-primary absolute top-0 left-0 h-1 w-full"></div>
+
+							<div class="flex items-center gap-4">
+								<div>
+									<span
+										class="material-symbols-outlined text-primary group-hover:text-white {project.id ===
+										expandedId
+											? 'text-white'
+											: ''}"
+									>
+										// {project.id}
+									</span>
+
+									<span class="font-headline text-xl font-bold uppercase italic">
+										{project.title}
+									</span>
+								</div>
+							</div>
+						</button>
+					{/each}
+				</div>
+
+				<!-- Project Detail Display -->
+				<div class="md:col-span-12 lg:sticky lg:top-40 lg:col-span-7">
+					{#if expandedId}
+						<div class="border-on-surface/20 border-l-2 pl-4 lg:pl-12">
+							<ProjectDetail project={projects.find((p) => p.id === expandedId)} />
+						</div>
+					{:else}
+						<div class="glitch-line mb-12"></div>
+					{/if}
+				</div>
+			</div>
+			<div class="glitch-line mb-12"></div>
 		</div>
 	</div>
 </section>
