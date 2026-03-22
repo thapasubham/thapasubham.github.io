@@ -81,13 +81,11 @@
 			</a>
 		</nav>
 		<div class="mt-auto px-4 pb-8">
-			<a
-				href="Subham%20Thapa.pdf"
-				download
+			<p
 				class="bg-primary text-on-primary font-headline clip-path-button hover:bg-on-surface inline-block w-full py-3 text-center text-xs tracking-widest transition-colors"
 			>
 				DOWNLOAD_CV
-			</a>
+			</p>
 		</div>
 	</aside>
 
