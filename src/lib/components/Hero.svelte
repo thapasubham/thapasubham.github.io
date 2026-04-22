@@ -19,8 +19,8 @@
 			</div>
 
 			<p class="font-body text-secondary max-w-lg text-xl leading-relaxed font-light md:text-2xl">
-				Aspiring Software Developer | Full-Stack Enthusiast. Building secure systems and web
-				applications for the <span class="text-on-surface font-bold">Modern Web</span>.
+				Software Engineer | Full-Stack Enthusiast. Building secure systems and web
+				applications for the <span class="text-on-surface font-bold">Modern Application</span>.
 			</p>
 
 			<div class="mt-4 flex flex-col gap-6 sm:flex-row">
@@ -50,14 +50,8 @@
 						>CORE_ENGINES</span
 					>
 					<div class="font-headline mt-2 text-lg font-bold uppercase">
-						GOLANG // MYSQL // SVELTE
+						NodeJs // SQL // React
 					</div>
-				</div>
-				<div>
-					<span class="font-label text-primary text-[10px] font-bold tracking-widest"
-						>TOOLS_&_VCS</span
-					>
-					<div class="font-headline mt-2 text-lg font-bold uppercase">GIT // POSTMAN // JWT</div>
 				</div>
 			</div>
 		</div>
@@ -71,7 +65,6 @@
 			<div
 				class="bg-surface-container-highest clip-path-tactical relative h-full w-full overflow-hidden"
 			>
-				<!-- Using a placeholder pattern that matches the aesthetic since we didn't extract an image URL dynamically here -->
 				<div
 					class="h-full w-full bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2664&auto=format&fit=crop')] bg-cover bg-center opacity-80 contrast-125 grayscale transition-all duration-700 group-hover:grayscale-0"
 				></div>

@@ -61,13 +61,15 @@
   --radius-full: 9999px;
 }
 
+
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-surface text-on-surface font-body overflow-x-hidden selection:bg-primary selection:text-on-primary antialiased;
+    @apply bg-transparent text-on-surface font-body overflow-x-hidden selection:bg-primary selection:text-on-primary antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
