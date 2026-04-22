@@ -1,4 +1,5 @@
 <script>
+	import NoiseBased from '../../shader/NoiseBased.svelte';
 	import ProjectDetail from './ProjectDetail.svelte';
 
 	const projects = [
@@ -40,18 +41,19 @@
 		}
 	];
 	let expandedId = $state(0);
+	/** @param {number} id */
 	function toggle(id) {
 		expandedId = id === expandedId ? 0 : id;
 	}
 </script>
 
 <section id="projects" class="bg-surface relative overflow-hidden px-2 py-20">
-	<!-- Background Decorations -->
-	<div class="grid-pattern pointer-events-none absolute inset-0 opacity-10"></div>
-	<div class="scanline pointer-events-none absolute inset-0 opacity-40"></div>
+	<!-- <div class="scanline pointer-events-none absolute inset-0 z-[1] opacity-[0.1]"></div> -->
+	<NoiseBased fullscreen={false} />
 
-	<div class="space-y-48 px-8 py-32 md:px-24">
+	<div class="relative z-10 space-y-48 px-8 py-32 md:px-24">
 		<!-- Section Header: Tactical Design -->
+		
 		<div
 			class="border-on-surface mb-24 flex flex-col items-end justify-between border-b-8 pb-6 md:flex-row"
 		>
