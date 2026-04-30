@@ -151,13 +151,7 @@
 				<span class="font-label text-sm font-bold tracking-widest uppercase">Interface</span>
 			</a>
 		</nav>
-		<div class="mt-auto px-4 pb-8">
-			<p
-				class="bg-primary text-on-primary font-headline clip-path-button hover:bg-on-surface inline-block w-full py-3 text-center text-xs tracking-widest transition-colors"
-			>
-				DOWNLOAD_CV
-			</p>
-		</div>
+		
 	</aside>
 
 	<main class="relative min-h-screen overflow-hidden pt-24 lg:ml-64">

@@ -20,6 +20,8 @@
 	let uVariant: WebGLUniformLocation | null;
 	let uAccent: WebGLUniformLocation | null;
 	let uTeal: WebGLUniformLocation | null;
+	let uNoiseSeed: WebGLUniformLocation | null;
+	let uNoisePhase: WebGLUniformLocation | null;
 	let frame = 0;
 	let resizeObserver: ResizeObserver | undefined;
 	let mouseMovement = new THREE.Vector2(0.5, 0.5);
@@ -52,10 +54,19 @@
 		uniform vec3 uVariant;
 		uniform vec3 uAccent;
 		uniform vec3 uTeal;
+		// New random values each mount → different Voronoi sites / phase every visit
+		uniform vec2 uNoiseSeed;
+		uniform float uNoisePhase;
 
 		vec2 random2(vec2 p) {
 			return fract(
 				sin(vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453123
+			);
+		}
+
+		vec2 random2B(vec2 p) {
+			return fract(
+				sin(vec2(dot(p, vec2(419.2, 78.233)), dot(p, vec2(191.7, 237.1)))) * 31415.92653
 			);
 		}
 
@@ -67,8 +78,26 @@
 			for (int y = -1; y <= 1; y++) {
 				for (int x = -1; x <= 1; x++) {
 					vec2 neighbor = vec2(float(x), float(y));
-					vec2 point = random2(i + neighbor);
-					point = 0.5 + 0.5 * sin(uTime * 0.14 + 6.2831853 * point);
+					vec2 point = random2(i + neighbor + uNoiseSeed);
+					point = 0.5 + 0.5 * sin(uTime * 0.14 + 6.2831853 * point + uNoisePhase);
+					vec2 diff = neighbor + point - f;
+					minDist = min(minDist, length(diff));
+				}
+			}
+			return minDist;
+		}
+
+		/** Second Voronoi field — different seeds + slightly slower feature motion */
+		float cellularOverlay(vec2 uv) {
+			vec2 i = floor(uv);
+			vec2 f = fract(uv);
+			float minDist = 1.0;
+
+			for (int y = -1; y <= 1; y++) {
+				for (int x = -1; x <= 1; x++) {
+					vec2 neighbor = vec2(float(x), float(y));
+					vec2 point = random2B(i + neighbor + uNoiseSeed * vec2(-1.73, 2.41) + vec2(31.1, 7.9));
+					point = 0.5 + 0.5 * sin(uTime * 0.1 + 6.2831853 * point + uNoisePhase * 0.71);
 					vec2 diff = neighbor + point - f;
 					minDist = min(minDist, length(diff));
 				}
@@ -82,18 +111,40 @@
 			uv.x *= uResolution.x / uResolution.y;
 
 			vec2 m = uMouseMovement - 0.5;
-			// Linear UV shift only — matches pointer direction (no sin/cos fighting parallax)
 			uv += m * 0.48;
+			// Subtle domain shift per session (keeps scale readable)
+			vec2 domainSkew = uNoiseSeed.yx * vec2(0.0024, 0.002);
+			uv += domainSkew;
 
 			float tSlow = uTime * 0.0065;
 			float c1 = cellular(uv * 3.0 + vec2(tSlow, tSlow * 0.55) + m * 0.35);
 			float c2 = cellular(uv * 6.0 + vec2(-tSlow * 0.62, tSlow * 0.42) + m * 0.35);
 			float ridge = smoothstep(0.12, 0.55, c1) - smoothstep(0.18, 0.62, c2);
 
-			vec3 baseWash = mix(uSurface, uVariant, 0.28 + ridge * 0.15);
-			vec3 col = mix(baseWash, mix(uAccent, uTeal, 0.38), ridge * 0.52);
-			col += uAccent * pow(max(ridge, 0.0), 2.0) * 0.14;
-			col = mix(col, uSurface, 0.1);
+			// Finer overlay Voronoi (uncorrelated lattice, own drift)
+			vec2 uvOver = uv * 8.75 + vec2(tSlow * 0.38, -tSlow * 0.71) - m * 0.28;
+			float c3 = cellularOverlay(uvOver);
+			float ridgeOver = smoothstep(0.1, 0.46, c3) - smoothstep(0.15, 0.58, c3);
+			ridgeOver = max(ridgeOver, 0.0);
+
+			// Pointer drives accent ↔ teal (and a touch of angle for variety)
+			float mr = length(m);
+			float angleTint = atan(m.y + 1e-5, m.x + 1e-5) * 0.159154943; // / TWO_PI → ~[-0.25,0.25]
+			float tintBlend = clamp(0.1 + m.x * 0.35 + m.y * 0.22 + angleTint, 0.0, 1.0);
+			vec3 ridgeTint = mix(uAccent, uTeal, tintBlend);
+
+			vec3 baseWash = mix(uSurface, uVariant, 0.28 + ridge * 0.15 + ridgeOver * 0.08);
+			baseWash = mix(baseWash, ridgeTint, mr * 0.06 * (0.25 + ridge * 0.35));
+
+			vec3 col = mix(baseWash, ridgeTint, ridge * 0.52);
+			col = mix(col, mix(uVariant, uTeal, 0.55), ridgeOver * 0.22);
+			col += uAccent * pow(max(ridge, 0.0), 2.0) * (0.11 + mr * 0.06);
+			col += uTeal * pow(max(ridgeOver, 0.0), 2.0) * 0.09;
+			col = mix(col, uSurface, 0.08);
+
+			// Stay below paper-white (theme surface is already ~0.98; hard cap prevents 1,1,1)
+			const vec3 COLOR_CEIL = vec3(0.97, 0.97, 0.98);
+			col = min(col, COLOR_CEIL);
 
 			gl_FragColor = vec4(col, 0.9);
 		}
@@ -154,10 +205,14 @@
 		uVariant = gl.getUniformLocation(program, 'uVariant');
 		uAccent = gl.getUniformLocation(program, 'uAccent');
 		uTeal = gl.getUniformLocation(program, 'uTeal');
+		uNoiseSeed = gl.getUniformLocation(program, 'uNoiseSeed');
+		uNoisePhase = gl.getUniformLocation(program, 'uNoisePhase');
 		gl.uniform3fv(uSurface, PALETTE.surface);
 		gl.uniform3fv(uVariant, PALETTE.variant);
 		gl.uniform3fv(uAccent, PALETTE.accent);
 		gl.uniform3fv(uTeal, PALETTE.teal);
+		gl.uniform2f(uNoiseSeed, Math.random() * 1000 - 500, Math.random() * 1000 - 500);
+		gl.uniform1f(uNoisePhase, Math.random() * Math.PI * 2);
 		resize();
 		if (fullscreen) {
 			window.addEventListener('resize', resize);
