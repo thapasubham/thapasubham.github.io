@@ -6,16 +6,15 @@
 		'Go',
 		'Java',
 		'Python',
-		'PHP',
 		'Node.js',
 		'Express',
 		'React',
 		'Svelte',
 		'SvelteKit',
 		'Socket.IO',
+		'k6 Load Testing', 
 		'WebSockets',
 		'Redis',
-		'Canvas API',
 		'MySQL',
 		'MongoDB',
 		'PostgreSQL',
@@ -37,12 +36,12 @@
 	];
 
 	const infra = [
-		'MySQL · MongoDB · PostgreSQL',
-		'Redis · Docker / RabbitMQ',
-		'Socket.IO · WebSockets · REST',
-		'AWS EC2 / VPC',
-		'Git / Postman / VSCode · JWT'
-	];
+        'MySQL · MongoDB · PostgreSQL',
+        'Redis · Docker / RabbitMQ',
+        'Socket.IO · WebSockets · REST',
+        'AWS EC2 / VPC',
+        'k6 (Load Testing) · Git / Postman · JWT' 
+    ];
 </script>
 
 <section id="skills" class="relative overflow-hidden py-36">

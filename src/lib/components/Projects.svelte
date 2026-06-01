@@ -4,15 +4,15 @@
 
 	const projects = [
 		{
-			id: '01',
-			title: 'Realtime Multiplayer Canvas',
-			year: '2025',
-			category: 'Real-Time Web App',
-			description:
-				'Collaborative drawing on a shared HTML5 canvas over WebSockets. Redis-backed matchmaking pairs users into rooms; stroke segments sync in real time via Socket.IO with RAF-batched updates.',
-			tech: ['Svelte', 'TypeScript', 'Socket.IO', 'Redis', 'Canvas API'],
-			link: 'https://github.com/thapasubham/websocket-chat'
-		},
+    id: '01',
+    title: 'Realtime Multiplayer Canvas',
+    year: '2025',
+    category: 'Real-Time Web App',
+    description:
+        'A low-latency collaborative drawing application built with Svelte 5. Features an atomic canvas rendering pipeline that completely isolates concurrent, cross-client drawing paths. Orchestrates multi-user state synchronization through a dynamic Redis-backed "fill-or-create" room matchmaking system, utilizing Socket.IO with requestAnimationFrame (RAF) batched updates to maintain high-performance rendering.Validated system reliability and socket connection thresholds using k6 load testing.',
+    tech: ['Svelte 5', 'TypeScript', 'Socket.IO', 'Redis', 'Canvas API'],
+    link: 'https://github.com/thapasubham/websocket-chat'
+},
 		{
 			id: '02',
 			title: 'Go Expense Tracker',
