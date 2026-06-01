@@ -123,7 +123,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shine 30s linear infinite;
+    animation: shine 15s linear infinite;
   }
 
   @keyframes shine {
@@ -157,11 +157,15 @@
     @apply font-hud text-[12px] tracking-[0.25em] uppercase text-hud;
   }
 
-  .animate-glitch {
-    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) infinite;
+  .hero-name {
+    font-size: clamp(2.25rem, 11vw, 10rem);
   }
 
-
+  @media (min-width: 768px) {
+    .hero-name {
+      padding-right: 2.5rem;
+    }
+  }
 
   @keyframes marquee {
     from {
@@ -175,33 +179,6 @@
 
   .animate-marquee {
     animation: marquee 30s linear infinite;
-  }
-
-
-  @keyframes glitch {
-    0% {
-      transform: translate(0);
-    }
-
-    20% {
-      transform: translate(-2px, 2px);
-    }
-
-    40% {
-      transform: translate(-2px, -2px);
-    }
-
-    60% {
-      transform: translate(2px, 2px);
-    }
-
-    80% {
-      transform: translate(2px, -2px);
-    }
-
-    100% {
-      transform: translate(0);
-    }
   }
 
   @media (pointer: fine) {

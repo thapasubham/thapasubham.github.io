@@ -9,14 +9,12 @@
 </script>
 
 <section id="about" class="relative min-h-screen overflow-hidden py-36">
-	<!-- watermark -->
 	<div
 		class="pointer-events-none absolute top-10 right-10 z-0 select-none font-display text-[10rem] font-black leading-none text-void [-webkit-text-stroke:2px_rgba(255,255,255,0.3)]"
 	>
 		02
 	</div>
 
-	<!-- Scanning Laser Bar -->
 	<div class="pointer-events-none absolute inset-0 z-10 overflow-hidden">
 		<div class="h-[1px] w-full bg-gradient-to-r from-transparent via-cyan/0 to-transparent animate-scan"></div>
 	</div>
@@ -24,9 +22,7 @@
 
 	<div class="mx-auto max-w-7xl px-10 md:px-16" use:reveal>
 		<div class="grid grid-cols-1 gap-24 lg:grid-cols-[280px,1fr]">
-			<!-- Label column -->
 			<div>
-				<!-- Mobile version -->
 				<div class="lg:hidden">
 					<span class="block hud-label text-cyan mb-4">
 						Identity
@@ -34,7 +30,6 @@
 					<div class="h-px w-12 bg-cyan/20"></div>
 				</div>
 
-				<!-- Desktop version -->
 				<div class="hidden lg:sticky lg:top-40 lg:self-start lg:block">
 					<span class="block hud-label text-cyan mb-4">
 						Identity
@@ -43,7 +38,6 @@
 				</div>
 			</div>
 
-			<!-- Content column -->
 			<div class="space-y-20">
 				<div>
 					<h2
@@ -61,7 +55,6 @@
 					</p>
 				</div>
 
-				<!-- Core stack -->
 				<div>
 					<span class="block font-mono text-[10px] tracking-[0.35em] text-muted mb-6 uppercase">
 						Core Stack
@@ -77,7 +70,6 @@
 					</div>
 				</div>
 
-				<!-- Education -->
 				<div class="border-t border-border pt-14">
 					<span class="block font-mono text-[10px] tracking-[0.35em] text-muted mb-10 uppercase">
 						Education

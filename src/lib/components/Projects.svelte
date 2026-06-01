@@ -1,20 +1,17 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
 	import { onMount } from 'svelte';
-	import { useGameState } from '$lib/gameState.svelte.ts';
-
-	const gameState = useGameState();
 
 	const projects = [
 		{
 			id: '01',
-			title: 'Movie Review System',
-			year: '2024',
-			category: 'Full-Stack Platform',
+			title: 'Realtime Multiplayer Canvas',
+			year: '2025',
+			category: 'Real-Time Web App',
 			description:
-				'A full-stack platform for movie reviews featuring dynamic UI, user authentication via Rust/SvelteKit, and robust database management.',
-			tech: ['Rust', 'SvelteKit', 'JavaScript', 'MySQL'],
-			link: 'https://github.com/thapasubham/review'
+				'Collaborative drawing on a shared HTML5 canvas over WebSockets. Redis-backed matchmaking pairs users into rooms; stroke segments sync in real time via Socket.IO with RAF-batched updates.',
+			tech: ['Svelte', 'TypeScript', 'Socket.IO', 'Redis', 'Canvas API'],
+			link: 'https://github.com/thapasubham/websocket-chat'
 		},
 		{
 			id: '02',
@@ -28,13 +25,13 @@
 		},
 		{
 			id: '03',
-			title: 'Order Microservice',
-			year: '2024',
+			title: 'Coffee Order Microservices',
+			year: '2025',
 			category: 'Microservices Architecture',
 			description:
-				'Microservice architecture using Go and MongoDB. Features an API Gateway for routing and RabbitMQ for asynchronous inter-service communication.',
-			tech: ['Golang', 'MongoDB', 'RabbitMQ'],
-			link: 'https://github.com/thapasubham/ordering-service'
+				'Coffee shop ordering split into services: a Go API gateway routes HTTP and checks JWTs; Node order, payment, and auth services use MongoDB. Placing an order triggers async payment over RabbitMQ—payment success or failure events update order status.',
+			tech: ['TypeScript', 'Golang', 'MongoDB', 'RabbitMQ', 'Svelte'],
+			link: 'https://github.com/thapasubham/orering-service'
 		},
 		{
 			id: '04',
@@ -45,6 +42,16 @@
 				'Full-stack platform with Stripe integration, RBAC via JWT/Bcrypt, and Docker-based deployment. Features dynamic font loading and secure resource access.',
 			tech: ['TypeScript', 'PostgreSQL', 'Docker', 'Stripe'],
 			link: 'https://github.com/thapasubham/final-project'
+		},
+		{
+			id: '05',
+			title: 'Digital Blackjack',
+			year: '2025',
+			category: 'Interactive Web App',
+			description:
+				'Browser blackjack built in Svelte: shuffle and deal with step-by-step animations, hit/stand gameplay, score tracking, and glass-style cards with 3D buttons. Card limits and deck bounds keep game state stable.',
+			tech: ['Svelte', 'TypeScript', 'Tailwind CSS'],
+			link: 'https://github.com/thapasubham/card-stuff'
 		}
 	];
 
@@ -100,10 +107,6 @@
 		{#each projects as project}
 			<div
 				id="proj-{project.id}"
-				role="button"
-				tabindex="0"
-				onclick={() => gameState.trackProject(project.id)}
-				onkeydown={(e) => e.key === 'Enter' && gameState.trackProject(project.id)}
 				class="group grid grid-cols-1 items-start gap-8 border-t border-border py-16 transition-all duration-700 lg:grid-cols-[72px,1fr,auto] lg:gap-16 {visible.has(
 					`proj-${project.id}`
 				)

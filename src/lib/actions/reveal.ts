@@ -11,7 +11,6 @@ export function reveal(node: HTMLElement, options: { threshold?: number; delay?:
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				node.classList.add('in-view');
-				// Unobserve so it stays visible and doesn't re-animate on every scroll
 				observer.unobserve(node);
 			}
 		});

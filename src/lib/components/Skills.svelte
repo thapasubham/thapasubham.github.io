@@ -10,7 +10,12 @@
 		'Node.js',
 		'Express',
 		'React',
+		'Svelte',
 		'SvelteKit',
+		'Socket.IO',
+		'WebSockets',
+		'Redis',
+		'Canvas API',
 		'MySQL',
 		'MongoDB',
 		'PostgreSQL',
@@ -27,16 +32,16 @@
 		'JavaScript / TypeScript',
 		'Go (Golang)',
 		'Java · Python · PHP',
-		'Node.js / Express',
-		'HTML / CSS'
+		'Node.js / Express · Svelte',
+		'HTML / CSS · Tailwind CSS'
 	];
 
 	const infra = [
 		'MySQL · MongoDB · PostgreSQL',
-		'Docker / RabbitMQ',
+		'Redis · Docker / RabbitMQ',
+		'Socket.IO · WebSockets · REST',
 		'AWS EC2 / VPC',
-		'Git / Postman / VSCode',
-		'JWT · Auth · Security'
+		'Git / Postman / VSCode · JWT'
 	];
 </script>
 

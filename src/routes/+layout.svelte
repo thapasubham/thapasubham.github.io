@@ -2,12 +2,8 @@
 	import { onMount } from 'svelte';
 	import '../app.css';
 	import NavPill from '$lib/components/NavPill.svelte';
-	import EasterEgg from '$lib/components/EasterEgg.svelte';
 	import Cursor from '$lib/components/Cursor.svelte';
-	import { initGameState } from '$lib/gameState.svelte.ts';
 	import { playHoverSound } from '$lib/audio';
-
-	initGameState();
 
 	let { children } = $props();
 
@@ -49,5 +45,4 @@
 
 <div class="min-h-screen bg-void">
 	{@render children()}
-	<EasterEgg />
 </div>
